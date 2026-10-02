@@ -1,6 +1,6 @@
 {
-  "id": "vault-scripts",
-  "name": "Vault Scripts",
-  "description": "A utility plugin for managing my Obsidian-based knowledge management system.",
+  "id": "vault-tools",
+  "name": "Vault Tools",
+  "description": "Provides tooling for my knowledge management workflow.",
   "isDesktopOnly": false
 }

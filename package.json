@@ -4,16 +4,17 @@
   "scripts": {
     "build:dev": "webpack --mode development --watch",
     "build:prod": "webpack --mode production",
+    "clean-code": "npm run lint && npm run format",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint \"**/*.css\" --ignore-path .toolignore --fix",
-    "format": "prettier --ignore-unknown --ignore-path .toolignore --write .",
-    "clean-code": "npm run lint && npm run format"
+    "format": "prettier --ignore-unknown --ignore-path .toolignore --write ."
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.0",
     "@eslint/js": "^9.12.0",
     "@types/lodash-es": "^4.17.12",
+    "@types/path-browserify": "^1.0.3",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
     "dotenv": "^16.4.5",

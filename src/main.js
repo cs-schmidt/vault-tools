@@ -1,18 +1,14 @@
 import { Plugin } from 'obsidian';
 import * as templates from './templates';
-import * as dataviews from './dataviews';
-import { setupCommands } from './commands';
 
-export default class VaultScripts extends Plugin {
-  static templates = templates;
-  static dataviews = dataviews;
+export default class VaultTools extends Plugin {
+  templates = templates;
 
   async onload() {
-    setupCommands(this);
-    window.VaultScripts = VaultScripts;
+    window.VaultTools = this;
   }
 
   async onunload() {
-    delete window.VaultScripts;
+    delete window.VaultTools;
   }
 }

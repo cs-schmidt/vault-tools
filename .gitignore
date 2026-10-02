@@ -1,2 +1,8 @@
+# Environment and secrets
 .env
+
+# Dependencies
 **/node_modules/
+
+# Other
+**/.temp/

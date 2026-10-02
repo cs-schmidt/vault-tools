@@ -1,10 +1,13 @@
+# Environment and secrets
+.env
+
 # Version Control
 **/.git/
-.gitignore
+**/.gitignore
 
-# Package Management
+# Dependencies
 **/node_modules/
 **/package-lock.json
 
 # Other
-.env
+**/.temp

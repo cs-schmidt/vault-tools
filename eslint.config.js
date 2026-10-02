@@ -1,34 +1,32 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'node:path';
+
 import { includeIgnoreFile } from '@eslint/compat';
+import pluginJs from '@eslint/js';
+import globals from 'globals';
 
-const projectRoot = dirname(fileURLToPath(import.meta.url));
-const dotIgnorePath = join(projectRoot, '.cleanignore');
+const IGNORE_FILE_PATH = join(import.meta.dirname, '.toolignore');
 
-/** ESLint Config */
 export default [
-  // Global Linting Config
-  // **************************************************
-  includeIgnoreFile(dotIgnorePath),
+  // Global/Default options
+  includeIgnoreFile(IGNORE_FILE_PATH),
   pluginJs.configs.recommended,
-  // Source Code Linting Config
-  // **************************************************
+
+  // Source code linting
   {
     files: ['src/**/*.{js,mjs,cjs}'],
     languageOptions: {
       globals: {
         ...globals.browser,
-        // Obsidian's `app` object.
         app: 'readonly',
       },
     },
   },
-  // Config File Linting Config
-  // **************************************************
+
+  // Config file linting
   {
     files: ['*.{js,mjs,cjs}'],
-    languageOptions: { globals: globals.node },
+    languageOptions: {
+      globals: globals.node,
+    },
   },
 ];

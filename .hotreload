@@ -1,0 +1,2 @@
+This is a sentinel file for Obsidian's Hot Reload plugin. It flags the output build
+so Hot Reload will monitor it for live compilation changes.

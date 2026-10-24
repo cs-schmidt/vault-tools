@@ -11,7 +11,13 @@ import typeDetect from 'type-detect';
 
 const ENTRY_DIR_PATH = 'Entries/';
 const ENTRY_BASENAME_REGEX = /^[^\\/:#^[\]|?"*]+$/;
-const ENTRY_TEMPLATE_TYPES = new Set(['study', 'concept', 'formal', 'thought', 'manual']);
+const ENTRY_TEMPLATE_TYPES = new Set([
+  'bundle',
+  'concept',
+  'formal',
+  'thought',
+  'manual',
+]);
 const FORMAL_TYPE_RANK_MAP = new Map([
   ['axiom', 1],
   ['theorem', 2],
@@ -51,9 +57,9 @@ export async function prepareEntry(tp) {
  * @param {Object} tp - Templater plugin object.
  * @returns {Object} Data to interpolate the template.
  */
-export async function prepareStudy(tp) {
+export async function prepareBundle(tp) {
   const title = await requestEntryTitle(tp);
-  const basename = `(*) ${title}`;
+  const basename = `(BN) ${title}`;
   if (!isUniqueEntryName(basename)) throw Error('Entry basename is taken');
   tp.file.rename(basename);
   return { title };
